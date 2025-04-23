@@ -1,0 +1,110 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\aaron\\Desktop\\stonk\\1\\CorrelationOrCausation\\CorrelationOrCausation\\CorrelationOrCausation.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\aaron\\Desktop\\stonk\\1\\CorrelationOrCausation\\CorrelationOrCausation\\CorrelationOrCausation.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\aaron\\Desktop\\stonk\\1\\CorrelationOrCausation\\CorrelationOrCausation\\CorrelationOrCausation.csproj",
+        "projectName": "CorrelationOrCausation",
+        "projectPath": "C:\\Users\\aaron\\Desktop\\stonk\\1\\CorrelationOrCausation\\CorrelationOrCausation\\CorrelationOrCausation.csproj",
+        "packagesPath": "C:\\Users\\aaron\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\aaron\\Desktop\\stonk\\1\\CorrelationOrCausation\\CorrelationOrCausation\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\aaron\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0-windows7.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0-windows7.0": {
+            "targetAlias": "net8.0-windows7.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.200"
+      },
+      "frameworks": {
+        "net8.0-windows7.0": {
+          "targetAlias": "net8.0-windows7.0",
+          "dependencies": {
+            "HtmlAgilityPack": {
+              "target": "Package",
+              "version": "[1.12.1, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.3, )"
+            },
+            "Selenium.Chrome.WebDriver": {
+              "target": "Package",
+              "version": "[85.0.0, )"
+            },
+            "Selenium.WebDriver": {
+              "target": "Package",
+              "version": "[4.29.0, )"
+            },
+            "SharpDX": {
+              "target": "Package",
+              "version": "[4.2.0, )"
+            },
+            "SharpDX.DXGI": {
+              "target": "Package",
+              "version": "[4.2.0, )"
+            },
+            "SharpDX.Direct3D11": {
+              "target": "Package",
+              "version": "[4.2.0, )"
+            },
+            "System.Drawing.Common": {
+              "target": "Package",
+              "version": "[9.0.2, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            },
+            "Microsoft.WindowsDesktop.App.WindowsForms": {
+              "privateAssets": "none"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.200/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
