@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CorrelationOrCausation")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+914525c3e044df66349a802ab9ee6309205fd59e")]
 [assembly: System.Reflection.AssemblyProductAttribute("CorrelationOrCausation")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CorrelationOrCausation")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

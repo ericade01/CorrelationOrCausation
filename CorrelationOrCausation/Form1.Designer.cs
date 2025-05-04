@@ -36,6 +36,8 @@
             textBox1 = new TextBox();
             textBox2 = new TextBox();
             button3 = new Button();
+            textBox3 = new TextBox();
+            button4 = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -71,7 +73,7 @@
             // 
             // pictureBox1
             // 
-            pictureBox1.Location = new Point(530, 249);
+            pictureBox1.Location = new Point(2, 204);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(100, 50);
             pictureBox1.TabIndex = 3;
@@ -111,11 +113,32 @@
             button3.UseVisualStyleBackColor = true;
             button3.Click += button3_Click;
             // 
+            // textBox3
+            // 
+            textBox3.Location = new Point(346, 187);
+            textBox3.Multiline = true;
+            textBox3.Name = "textBox3";
+            textBox3.ScrollBars = ScrollBars.Vertical;
+            textBox3.Size = new Size(405, 386);
+            textBox3.TabIndex = 8;
+            // 
+            // button4
+            // 
+            button4.Location = new Point(852, 50);
+            button4.Name = "button4";
+            button4.Size = new Size(75, 23);
+            button4.TabIndex = 9;
+            button4.Text = "button4";
+            button4.UseVisualStyleBackColor = true;
+            button4.Click += button4_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(825, 524);
+            ClientSize = new Size(998, 640);
+            Controls.Add(button4);
+            Controls.Add(textBox3);
             Controls.Add(button3);
             Controls.Add(textBox2);
             Controls.Add(textBox1);
@@ -142,5 +165,7 @@
         private TextBox textBox1;
         private TextBox textBox2;
         private Button button3;
+        private TextBox textBox3;
+        private Button button4;
     }
 }

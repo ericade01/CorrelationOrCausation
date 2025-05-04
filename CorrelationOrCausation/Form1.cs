@@ -5,11 +5,17 @@ using System.Runtime.InteropServices;
 using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Imaging;
+using System.Text;
+
 
 namespace CorrelationOrCausation
 {
     public partial class Form1 : Form
     {
+
+        //webull 199111
+
+
         #region includes
         [DllImport("user32.dll")]
         static extern void mouse_event(uint dwFlags, uint dx, uint dy, uint dwData, UIntPtr dwExtraInfo);
@@ -21,8 +27,10 @@ namespace CorrelationOrCausation
         #endregion
 
         public static bool start = false;
+        private runpy runapy = new runpy();
         private Api api = new Api();
         private Scraper scrape = new Scraper();
+        private StockCalculator calculator = new StockCalculator();
         public Form1()
         {
             InitializeComponent();
@@ -117,7 +125,7 @@ namespace CorrelationOrCausation
             Thread.Sleep(5000);
             while (true)
             {
-                label1.Invoke(new MethodInvoker(delegate { label1.Text = Cursor.Position.ToString(); }));
+                label1.Invoke(new System.Windows.Forms.MethodInvoker(delegate { label1.Text = Cursor.Position.ToString(); }));
                 if (api.altHotkeys[0] != lastState)
                 {
                     lastState = api.altHotkeys[0];
@@ -212,7 +220,7 @@ namespace CorrelationOrCausation
 
 
 
-       
+
         }
 
         public string tehe()
@@ -242,6 +250,19 @@ namespace CorrelationOrCausation
             return;
 
             */
+         //   Thread.Sleep(1000);
+       //     api.ScrollDown(5000, 3);
+
+         //   return;
+
+            var growthResults = TradingCalculator.CalculateGrowth(10000m, 7, 0.002m, 360);
+            textBox3.Text = string.Join(Environment.NewLine, growthResults.Select((value, index) => $"Day {index + 1}: {value:C2}"));
+
+
+
+            return;
+
+
             var raw = Clipboard.GetText();
             var articles = ScraperNasdaq.ExtractTitlesFromNasdaqText(raw);
 
@@ -256,9 +277,129 @@ namespace CorrelationOrCausation
             }
         }
 
+        private void button4_Click(object sender, EventArgs e)
+        {
+            string filePath = @"C:\Users\aaron\Desktop\stonk\1\CorrelationOrCausation\CorrelationOrCausation\bin\Debug\net8.0-windows7.0\yahoo finance\nvda_5m.csv";
+
+
+            calculator.LoadData(filePath);
+
+            //DisplayAllDataFlexible(calculator.AllData);
+
+            //  DisplayAllDataFlexible(calculator.MonthlyGroups["2025-03"], "2025-03");
+            //DisplayAllDataFlexible(calculator.DailyGroups["2025-04-01"], "2025-04-01");
+            //DisplayAllDataFlexible(calculator.FiveMinuteGroups["2025-04-01 09:35"], "2025-04-01 09:35");
+
+
+
+
+
+            // Now you have:
+            // calculator.AllData         -> all data
+            // calculator.MonthlyGroups   -> grouped per month
+            // calculator.WeeklyGroups    -> grouped per week
+            // calculator.DailyGroups     -> grouped per day
+            // calculator.HourlyGroups    -> grouped per hour
+            // calculator.FiveMinuteGroups-> grouped per 5-minute
+
+            // Example: you could now compute something when ready:
+            double totalAverage = calculator.CalculateAverage(calculator.MonthlyGroups["2025-04"]);
+
+             totalAverage = calculator.CalculateAverage(calculator.DailyGroups["2025-04-01"]);
+            MessageBox.Show(totalAverage.ToString());
+            totalAverage = calculator.CalculateAverage(calculator.DailyGroups["2025-04-02"]);
+            MessageBox.Show(totalAverage.ToString());
+
+            //
+
+        }
+
+
+        private void DisplayAllDataFlexible(IEnumerable<StockData> data, string groupName = null)
+        {
+            StringBuilder sb = new StringBuilder();
+
+            if (!string.IsNullOrEmpty(groupName))
+            {
+                sb.AppendLine($"Group: {groupName}");
+            }
+
+            foreach (var item in data)
+            {
+                sb.AppendLine($"{item.Timestamp:yyyy-MM-dd HH:mm}  ->  {item.Close}");
+            }
+
+            textBox3.Text = sb.ToString();
+        }
+
+
+
+        private void DisplayMultipleGroups(Dictionary<string, List<StockData>> groups, List<string> selectedGroupKeys)
+        {
+            StringBuilder sb = new StringBuilder();
+
+            foreach (var key in selectedGroupKeys)
+            {
+                if (groups.TryGetValue(key, out var dataList))
+                {
+                    sb.AppendLine($"Group: {key}");
+                    foreach (var item in dataList)
+                    {
+                        sb.AppendLine($"{item.Timestamp:yyyy-MM-dd HH:mm}  ->  {item.Close}");
+                    }
+                    sb.AppendLine(); // extra spacing
+                }
+            }
+
+            textBox3.Text = sb.ToString();
+        }
+
+
+
+
+
 
 
 
 
     }
+
+
+    public class TradingCalculator
+    {
+       public static List<decimal> CalculateGrowth(decimal deposit, int tradesPerDay, decimal ratePerTrade, int totalDays)
+        {
+            List<decimal> balances = new List<decimal>();
+            decimal balance = deposit;
+
+            for (int day = 1; day <= totalDays; day++)
+            {
+                for (int trade = 1; trade <= tradesPerDay; trade++)
+                {
+                    balance *= (1 + ratePerTrade);
+                }
+
+                balances.Add(balance);
+            }
+
+            return balances;
+        }
+
+
+
+
+
+
+
+
+    }
+
+
+
+
+
+
+
+
+
 }

@@ -31,3 +31,4 @@ C:\Users\aaron\Desktop\stonk\1\CorrelationOrCausation\CorrelationOrCausation\bin
 C:\Users\aaron\Desktop\stonk\1\CorrelationOrCausation\CorrelationOrCausation\bin\Debug\net8.0-windows7.0\WebDriver.dll
 C:\Users\aaron\Desktop\stonk\1\CorrelationOrCausation\CorrelationOrCausation\bin\Debug\net8.0-windows7.0\Newtonsoft.Json.dll
 C:\Users\aaron\Desktop\stonk\1\CorrelationOrCausation\CorrelationOrCausation\bin\Debug\net8.0-windows7.0\HtmlAgilityPack.dll
+C:\Users\aaron\Desktop\stonk\1\CorrelationOrCausation\CorrelationOrCausation\obj\Debug\net8.0-windows7.0\CorrelationOrCausation.sourcelink.json
